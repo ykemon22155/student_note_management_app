@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "796778173685",
+    "project_id": "student-note-management",
+    "storage_bucket": "student-note-management.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796778173685:android:6d208c2e4c44f1393761bc",
+        "android_client_info": {
+          "package_name": "com.example.student_note_management_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8GlNNsXcf8O9hfYJxKd8nMnrWsjzVfyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
