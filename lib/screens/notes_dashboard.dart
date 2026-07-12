@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../managers/note_blueprint.dart';
 import '../managers/firestore_manager.dart';
-import '../main.dart'; // themeNotifier পাওয়ার জন্য মেইন ফাইল ইম্পোর্ট করা হলো
+import '../main.dart';
 import 'note_editor.dart';
 
 class NotesDashboard extends StatefulWidget {
@@ -14,33 +14,25 @@ class NotesDashboard extends StatefulWidget {
 class _NotesDashboardState extends State<NotesDashboard> {
   final FirestoreManager _repo = FirestoreManager();
 
-  // আপনার স্ক্রিনশটের মতো আকর্ষণীয় পেস্টেল কালার লিস্ট
   final List<Color> cardColors = [
-    const Color(0xFFFFAB91), // সফট অরেঞ্জ
-    const Color(0xFFFFCC80), // সফট হলুদ
-    const Color(0xFFE6EE9C), // সফট লাইট গ্রিন
-    const Color(0xFF80DEEA), // সফট ব্লু
-    const Color(0xFFCF93D9), // সফট পার্পল
-    const Color(0xFFF48FB1), // সফট পিঙ্ক
+    const Color(0xFFFFAB91),  const Color(0xFFFFCC80),  const Color(0xFFE6EE9C),
+    const Color(0xFF80DEEA),  const Color(0xFFCF93D9),  const Color(0xFFF48FB1),
   ];
 
   @override
   Widget build(BuildContext context) {
-    // বর্তমান থিম ডার্ক নাকি লাইট তা চেক করার জন্যbool
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Notes'),
         actions: [
-          // থিম টগল বাটন যা ইউজার ক্লিক করে মোড চেঞ্জ করবেন
           IconButton(
             icon: Icon(
               isDarkMode ? Icons.light_mode : Icons.dark_mode,
               size: 26,
             ),
             onPressed: () {
-              // এক ক্লিকে ডার্ক থেকে লাইট অথবা লাইট থেকে ডার্ক হবে
               themeNotifier.value = isDarkMode ? ThemeMode.light : ThemeMode.dark;
             },
           ),
@@ -94,7 +86,6 @@ class _NotesDashboardState extends State<NotesDashboard> {
                   decoration: BoxDecoration(
                     color: selectColor,
                     borderRadius: BorderRadius.circular(16),
-                    // লাইট মোডে হালকা শ্যাডো দিলে কার্ডগুলো সুন্দর ভেসে উঠবে
                     boxShadow: isDarkMode
                         ? []
                         : [
@@ -155,7 +146,6 @@ class _NotesDashboardState extends State<NotesDashboard> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        // থিম অনুযায়ী ব্যাকগ্রাউন্ড এবং প্লাস আইকন কালার অটো চেঞ্জ হবে
         backgroundColor: isDarkMode ? const Color(0xFF252525) : Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
         onPressed: () => Navigator.push(

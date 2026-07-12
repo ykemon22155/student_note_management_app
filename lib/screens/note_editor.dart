@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// আপনার কাস্টম ফাইলগুলো রিলেটিভ পাথের মাধ্যমে ইম্পোর্ট করা হলো
 import '../managers/note_blueprint.dart';
 import '../managers/firestore_manager.dart';
 
@@ -71,11 +70,9 @@ class _NoteEditorState extends State<NoteEditor> {
 
   @override
   Widget build(BuildContext context) {
-    // বর্তমান থিম মোড (Dark নাকি Light) তা চেক করার লজিক
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      // থিম অনুযায়ী ব্যাকগ্রাউন্ড কালার পরিবর্তন হবে (ডার্ক হলে গাঢ় কালো, লাইট হলে হালকা সাদা)
       backgroundColor: isDarkMode ? const Color(0xFF1F1F1F) : const Color(0xFFF5F5F5),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -100,7 +97,6 @@ class _NoteEditorState extends State<NoteEditor> {
           key: _formValidationKey,
           child: Column(
             children: [
-              // থিম অনুযায়ী টাইটেল টেক্সট ও হিন্ট কালার চেঞ্জ হবে
               TextFormField(
                 controller: _titleController,
                 style: TextStyle(
@@ -116,7 +112,6 @@ class _NoteEditorState extends State<NoteEditor> {
                 validator: (value) => value == null || value.isEmpty ? 'Title is required' : null,
               ),
               const SizedBox(height: 12),
-              // থিম অনুযায়ী বিবরণ (Description) এরিয়া এবং লেখার কালার চেঞ্জ হবে
               Expanded(
                 child: TextFormField(
                   controller: _descController,
